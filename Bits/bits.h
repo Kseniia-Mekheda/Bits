@@ -19,7 +19,11 @@ public:
 	bool IsEmpty() const;
 	bool IsAny() const;
 	bool IsFull() const;
+	unsigned char operator~();
 	bool operator[](size_t index) const;
 
 	size_t Count() const;
+
+	unsigned char operator|=(const BitSet& val);
+	unsigned char operator&=(const BitSet& val);
 };

@@ -37,7 +37,8 @@ void BitSet::ResetBit(size_t index)
 		return;
 	}
 
-	bit = bit & ~(1 << index);
+	bit = bit 
+		& ~(1 << index);
 }
 
 void BitSet::FlipBit(size_t index)
@@ -125,6 +126,10 @@ bool BitSet::IsFull() const
 	return statement;
 }
 
+unsigned char BitSet::operator~() {
+	return bit = ~bit;
+}
+
 bool BitSet::operator[](size_t index) const
 {
 	if (index < 0 || index >= size)
@@ -153,4 +158,14 @@ size_t BitSet::Count() const
 		}
 	}
 	return counter;
+}
+
+unsigned char BitSet::operator|=(const BitSet & val)
+{
+	return bit = bit | val.bit;
+}
+
+unsigned char BitSet::operator&=(const BitSet & val)
+{
+	return bit = bit & val.bit;
 }
